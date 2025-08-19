@@ -1,0 +1,41 @@
+<%- include('../layouts/header') %>
+
+<style>
+  body {
+    background: linear-gradient(135deg, #000000, #FFD700);
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  h1 {
+    color: #FFD700;
+  }
+
+  .btn-secondary {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    border: none;
+  }
+
+  .btn-secondary:hover {
+    background-color: #fff;
+    color: #000;
+  }
+
+  p {
+    color: #eee;
+  }
+</style>
+
+<div class="container mt-5">
+  <h1 class="mb-4"><%= product.name %></h1>
+
+  <img src="/<%= product.image %>" class="img-fluid mb-4" style="max-height: 400px; object-fit: cover; border-radius: 12px;">
+
+  <h5>Category: <%= product.category %></h5>
+  <p><%= product.description %></p>
+
+  <a href="/" class="btn btn-secondary">Back to Home</a>
+</div>
+
+<%- include('../layouts/footer') %>

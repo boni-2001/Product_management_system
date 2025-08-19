@@ -1,0 +1,112 @@
+<%- include('../layouts/header') %>
+
+<style>
+  body {
+    background: linear-gradient(135deg, #000000, #FFD700);
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  h1 {
+    color: #fff;
+    font-weight: 600;
+  }
+
+  .card {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: #fff;
+  }
+
+  .card-title {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #FFD700;
+  }
+
+  .display-4 {
+    font-weight: 700;
+  }
+
+  .btn-primary {
+    background-color: #000;
+    border: none;
+    color: #FFD700;
+  }
+
+  .btn-primary:hover {
+    background-color: #1a1a1a;
+  }
+
+  .btn-success {
+    background-color: #FFD700;
+    color: #000;
+    border: none;
+  }
+
+  .btn-success:hover {
+    background-color: #e6c200;
+  }
+
+  .btn-secondary {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    border: none;
+  }
+
+  .btn-secondary:hover {
+    background-color: #fff;
+    color: #000;
+  }
+
+  .alert-success, .alert-danger {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto 20px auto;
+  }
+</style>
+
+<div class="container mt-5">
+  <h1 class="mb-4 text-center">Admin Dashboard</h1>
+
+  <% if (success && success.length > 0) { %>
+    <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
+      <%= success %>
+    </div>
+  <% } %>
+
+  <% if (error && error.length > 0) { %>
+    <div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
+      <%= error %>
+    </div>
+  <% } %>
+
+  <div class="row justify-content-center mb-4">
+    <div class="col-md-4">
+      <div class="card text-center shadow rounded-4">
+        <div class="card-body">
+          <h5 class="card-title">Total Products</h5>
+          <h2 class="display-4"><%= count %></h2>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center">
+    <a href="/admin/products" class="btn btn-primary me-3">Manage Products</a>
+    <a href="/admin/products/add" class="btn btn-success me-3">Add Product</a>
+    <a href="/" class="btn btn-secondary">User Side</a>
+  </div>
+</div>
+
+<script>
+  setTimeout(() => {
+    document.querySelectorAll('.alert').forEach(el => {
+      el.classList.remove('show');
+      el.classList.add('fade');
+      setTimeout(() => el.remove(), 500);
+    });
+  }, 2000);
+</script>
+
+<%- include('../layouts/footer') %>
